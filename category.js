@@ -13,7 +13,7 @@ category_router.use(bodyParser.urlencoded({
 }));
 
 category_router.get('/index', async (req,res) => {
-    const client = await MongoClient.connect(uri, {useUnifiedTopology : true});
+    const client = await MongoClient.connect(uri );
     const db = client.db('miniproject');
     const collection = db.collection('categories');
 
@@ -36,7 +36,7 @@ category_router.get('/index', async (req,res) => {
 category_router.get('/view', async (req,res) => {
     let id = req.query.id;
     let o_id = mongo.ObjectID(id);
-    const client = await MongoClient.connect(uri, {useUnifiedTopology : true});
+    const client = await MongoClient.connect(uri );
     const db = client.db('miniproject');
     const collection = db.collection('categories');
     const category1 = await collection.findOne({'_id' : o_id});
@@ -59,7 +59,7 @@ category_router.get('/update', async (req,res) => {
     
     let id = req.query.id;
     let o_id = mongo.ObjectID(id);
-    const client = await MongoClient.connect(uri, {useUnifiedTopology : true});
+    const client = await MongoClient.connect(uri );
     const db = client.db('miniproject');
     const collection = db.collection('categories');
     const category1 = await collection.findOne({'_id' : o_id});
@@ -86,7 +86,7 @@ category_router.post('/updateCategory', async (req,res) => {
     let name = req.body.name;
     let id = new mongo.ObjectID(req.body.id);    
     let description = req.body.description;
-    const client = await MongoClient.connect(uri, {useUnifiedTopology : true});
+    const client = await MongoClient.connect(uri );
     const db = client.db('miniproject');
     const collection = db.collection('categories');
     
@@ -120,7 +120,7 @@ category_router.get('/add', async (req,res) => {
 
 category_router.get('/delete', async (req,res) => {
     let id = new mongo.ObjectID(req.query.id);    
-    const client = await MongoClient.connect(uri, {useUnifiedTopology : true});
+    const client = await MongoClient.connect(uri );
     const db = client.db('miniproject');
     const collection = db.collection('categories');
 
@@ -133,7 +133,7 @@ category_router.get('/delete', async (req,res) => {
 category_router.post('/addCategoryF', async (req,res) => {
     let name = req.body.name;
     let description = req.body.description;
-    const client = await MongoClient.connect(uri, {useUnifiedTopology : true});
+    const client = await MongoClient.connect(uri );
     const db = client.db('miniproject');
     const collection = db.collection('categories');
 

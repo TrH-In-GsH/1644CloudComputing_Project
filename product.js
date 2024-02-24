@@ -40,9 +40,7 @@ handlebars.registerHelper('selected', function(option, value){
 
 
 product_router.get('/delete', async function (req, res) {
-    let client = await MongoClient.connect(uri, {
-        useUnifiedTopology: true
-    });
+    let client = await MongoClient.connect(uri );
     let db = client.db('miniproject');
     let collection = db.collection('product');
     let id = req.query.id;
@@ -59,9 +57,7 @@ product_router.get('/delete', async function (req, res) {
 })
 
 product_router.post('/doSearch', async (req, res) => {
-    let client = await MongoClient.connect(uri, {
-        useUnifiedTopology: true
-    });
+    let client = await MongoClient.connect(uri );
     let db = client.db('miniproject');
     let collection = db.collection('product');
 
@@ -89,9 +85,7 @@ product_router.post('/doSearch', async (req, res) => {
 
 // index
 product_router.get('/index', async (req, res) => {
-    let client = await MongoClient.connect(uri, {
-        useUnifiedTopology: true
-    });
+    let client = await MongoClient.connect(uri );
     let db = client.db('miniproject');
 
     let collection = db.collection('product');
@@ -120,9 +114,7 @@ product_router.get('/index', async (req, res) => {
 //view
 product_router.get('/view', async (req, res) => {
     var id = req.query.id;
-    const client = await MongoClient.connect(uri, {
-        useUnifiedTopology: true
-    });
+    const client = await MongoClient.connect(uri );
     const db = client.db('miniproject');
 
     const collection = db.collection('product');
@@ -157,9 +149,7 @@ product_router.get('/view', async (req, res) => {
 //add 
 
 product_router.get('/addProduct', async (req, res) => {
-    const client = await MongoClient.connect(uri, {
-        useUnifiedTopology: true
-    });
+    const client = await MongoClient.connect(uri );
     const db = client.db('miniproject');
 
     let categories1 = await db.collection('categories').find({}).toArray();
@@ -210,9 +200,7 @@ product_router.post('/addProductF', upload.single("avatar"), async (req, res) =>
 product_router.get('/update', async function (req, res) {
     let id = req.query.id;
 
-    const client = await MongoClient.connect(uri, {
-        useUnifiedTopology: true
-    });
+    const client = await MongoClient.connect(uri );
     const db = client.db('miniproject');
     const collection = db.collection('product');
 
@@ -257,9 +245,7 @@ product_router.post('/updateProduct', upload.single("avatar"), async (req, res) 
     let category_id = req.body.category;
     let supplier_id = req.body.supplier;
 
-    const client = await MongoClient.connect(uri, {
-        useUnifiedTopology: true
-    });
+    const client = await MongoClient.connect(uri );
     const db = client.db('miniproject');
     const collection = db.collection('product');
 

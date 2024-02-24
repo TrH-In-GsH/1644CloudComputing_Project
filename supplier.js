@@ -18,9 +18,7 @@ supplier_router.use(bodyParser.urlencoded({
 
 
 supplier_router.get('/index', async (req, res) => {
-    const client = await MongoClient.connect(uri, {
-        useUnifiedTopology: true
-    });
+    const client = await MongoClient.connect(uri );
     const db = client.db('miniproject');
     const collection = db.collection('suppliers');
 
@@ -52,9 +50,7 @@ supplier_router.get('/add', async (req, res) => {
 })
 
 supplier_router.post('/addSupplier', async (req, res) => {
-    const client = await MongoClient.connect(uri, {
-        useUnifiedTopology: true
-    });
+    const client = await MongoClient.connect(uri );
     const db = client.db('miniproject');
     const collection = db.collection('suppliers');
 
@@ -84,9 +80,7 @@ supplier_router.post('/addSupplier', async (req, res) => {
 
 supplier_router.get('/view', async (req, res) => {
     let id = req.query.id;
-    const client = await MongoClient.connect(uri, {
-        useUnifiedTopology: true
-    });
+    const client = await MongoClient.connect(uri );
     const db = client.db('miniproject');
     const collection = db.collection('suppliers');
     let o_id = mongo.ObjectID(id);
@@ -111,9 +105,7 @@ supplier_router.get('/view', async (req, res) => {
 
 supplier_router.get('/update', async (req, res) => {
     let id = mongo.ObjectID(req.query.id);
-    const client = await MongoClient.connect(uri, {
-        useUnifiedTopology: true
-    });
+    const client = await MongoClient.connect(uri );
     const db = client.db('miniproject');
     const collection = db.collection('suppliers');
 
@@ -136,9 +128,7 @@ supplier_router.get('/update', async (req, res) => {
 
 
 supplier_router.post('/updateSupplier', async (req, res) => {
-    const client = await MongoClient.connect(uri, {
-        useUnifiedTopology: true
-    });
+    const client = await MongoClient.connect(uri );
     const db = client.db('miniproject');
     const collection = db.collection('suppliers');
 
@@ -164,9 +154,7 @@ supplier_router.post('/updateSupplier', async (req, res) => {
 })
 
 supplier_router.get('/delete', async (req,res) => {
-    const client = await MongoClient.connect(uri, {
-        useUnifiedTopology: true
-    });
+    const client = await MongoClient.connect(uri );
     const db = client.db('miniproject');
     const collection = db.collection('suppliers');
 

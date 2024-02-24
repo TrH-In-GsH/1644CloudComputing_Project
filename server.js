@@ -35,7 +35,7 @@ app.use('/suppliers', supplierRoute);
 
 app.get('/', async (req, res) => {
 
-    const client = await MongoClient.connect(uri, {useUnifiedTopology :true});
+    const client = await MongoClient.connect(uri);
     const db = client.db('miniproject');
     const collection = db.collection('product');
 
